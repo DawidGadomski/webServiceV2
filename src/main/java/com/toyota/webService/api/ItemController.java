@@ -35,9 +35,9 @@ public class ItemController {
     @PostMapping("/items/add")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void addItem(@RequestBody Item item){
-//        Item item = modelMapper.map(itemDto, Item.class);
-
+    public void addItem(@RequestBody ItemDTO itemDto){
+        Item item = modelMapper.map(itemDto, Item.class);
+        System.out.println(item.getCode()+item.getName()+item.getId()+item.getRent());
         itemService.addItem(item);
     }
 

@@ -9,11 +9,6 @@ public class ItemDTO {
     @NotNull
     private String code;
 
-    public ItemDTO(@NotNull String name, @NotNull String code) {
-        this.name = name;
-        this.code = code;
-    }
-
     public String getName() {
         return name;
     }

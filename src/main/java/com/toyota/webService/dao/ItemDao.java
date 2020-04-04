@@ -70,7 +70,8 @@ public class ItemDao {
                 databaseInfo.getItemsDatabase(), databaseInfo.getItemColumn2(),
                 databaseInfo.getItemColumn3(), databaseInfo.getItemColumn4()
                 );
-        jdbcTemplate.update(query,item.getName(), item.getCode(), 0);
+        System.out.println(query);
+        jdbcTemplate.update(query,item.getName(), item.getCode(), item.getRent());
         return 1;
     }
 

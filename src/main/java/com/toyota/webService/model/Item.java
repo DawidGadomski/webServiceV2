@@ -2,18 +2,20 @@ package com.toyota.webService.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
-//@Entity
+@Entity
 public class Item {
-//    @Id
-//    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+    @NotNull
     private String name;
+    @NotNull
     private String code;
+
+    @Column(columnDefinition = "integer default 0")
     private int rent;
 
     public Item() {
@@ -21,7 +23,7 @@ public class Item {
 
     public Item(@JsonProperty("id") int id,
                 @JsonProperty("name") String name,
-                @JsonProperty("itemCode") String code,
+                @JsonProperty("code") String code,
                 @JsonProperty("rent") int rent) {
 
         this.id = id;
